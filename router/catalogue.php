@@ -1,7 +1,7 @@
 <?php 
 $chemin ="template/assets/img/";
 $cmd="";
-
+$page="home";
 
 
 echo " 
@@ -13,11 +13,11 @@ echo "
     </div>
 </div>
 
-<nav class='navbar j mld-nav'>
+<nav class='navbar mld-nav'>
 <div class='container'>
 <div class='col-sm'> </div>
 <div class='col-sm'>
-    <a class='nav-link'>Accueil</a>
+    <a class='nav-link' href='index.php'>Accueil</a>
 </div>
 <div class='col-sm'> </div>
 </div>

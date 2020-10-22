@@ -1,17 +1,52 @@
 <?php
 
 
-$connexion = 'mysql:host=localhost;dbname=le_bateau_pirate';
-$user ="web001";
-$pass="topsecret";
-
+$chemin ="template/assets/img/";
 $cmd="";
 
-try{
-    $dbh = new PDO($connexion, $user, $pass);
-} catch (PDOException $e) {
 
-}
+
+ echo " 
+<div class='container-fluid mld-head'>
+    <div class='row'>
+        <div class='col'>
+
+        </div>
+    </div>
+</div>
+
+<nav class='navbar j mld-nav'>
+<div class='container'>
+<div class='col-sm'> </div>
+<div class='col-sm'>
+<a class='nav-link' href='home.php'>Accueil</a>
+    <a class='nav-link'>Catalogue</a>
+</div>
+<div class='col-sm'> </div>
+</div>
+</nav>";
+
+
+
+/* echo"
+<div class='container-fluid  mld-body'>
+    <h1 class='mld-titre'> $ligne['nom'] </h1>
+    <div class='container'>
+        <div class='row'>
+            <div class='col'>
+            
+            </div>
+        </div>
+
+    </div>
+</div>
+";
+
+*/
+
+
+
+
 
 
 echo"<form method='GET'>
