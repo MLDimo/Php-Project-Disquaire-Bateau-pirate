@@ -1,29 +1,49 @@
 <?php 
 $chemin ="template/assets/img/";
 $cmd="";
-$contenu = "";
-$partie1=""; 
 
-$texte = array("titre"=> "Catalogue",
-"partie1"=>$partie1,
-"partie2"=>$partie2,
-"contenu" =>$contenu);
 
-echo " <pre>
-<div class='container'>
-    <div class='row mld-div-card'>";
-    foreach($dbh->query("SELECT nom, img FROM Disques ORDER BY id desc")as $ligne) {
 
-      echo"  <div class='col-sm-5 mld-pos-card' >
-            <div class='mld-card'>
-                <img class='mld-card-img' src=".$chemin.$ligne["img"].">"."<br><h3> ".$ligne['nom']."</h3><br> ".$ligne['description']."
-                <br><input type='submit' class='mld-card-a'name='$cmd' value='Voir'>
-            </div>
-        </div>";
-    }
- echo"</div>
+echo " 
+<div class='container-fluid mld-head'>
+    <div class='row'>
+        <div class='col'>
+
+        </div>
+    </div>
 </div>
-</pre>";
+
+<nav class='navbar j mld-nav'>
+<div class='container'>
+<div class='col-sm'> </div>
+<div class='col-sm'>
+    <a class='nav-link'>Accueil</a>
+</div>
+<div class='col-sm'> </div>
+</div>
+</nav>
+
+<div class='container-fluid  mld-body'>
+    <h1 class='mld-titre'> Catalogue </h1>
+    <div class='container'>
+        <div class='row mld-div-card'>
+        ";
+        foreach($dbh->query("SELECT nom, img, prix FROM Disques ORDER BY id desc")as $ligne) {
+
+        echo"  <div class='col-sm-5 mld-pos-card' >
+                <div class='mld-card'>
+                    <div class='gneu'></div>
+                    <h4>WANTED</h4>
+                    <img class='mld-card-img' src=".$chemin.$ligne["img"].">"."<h3> ".$ligne['nom']."</h3><h6> Dead or Alive </h6>".$ligne['prix']." $
+                    <br><input type='submit' class='mld-card-a' name='$cmd' value='Voir'><br><div class='gneu'></div>
+                    
+                </div>
+            </div>";
+        }
+    echo"</div>
+    </div>
+</div>
+";
 
 
 
