@@ -17,7 +17,7 @@ echo "
 <div class='container'>
 <div class='col-sm'> </div>
 <div class='col-sm'>
-    <a class='nav-link' href='index.php'>Accueil</a>
+    <a class='nav-link' href='index.php?page=home'>Accueil</a>
 </div>
 <div class='col-sm'> </div>
 </div>

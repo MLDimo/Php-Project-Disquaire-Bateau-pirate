@@ -19,8 +19,8 @@ $cmd="";
 <div class='container'>
 <div class='col-sm'> </div>
 <div class='col-sm'>
-<a class='nav-link' href='home.php'>Accueil</a>
-    <a class='nav-link'>Catalogue</a>
+<a class='nav-link' href='index.php?page=home'>Accueil</a>
+    <a class='nav-link' href='index.php?page=catalogue'>Catalogue</a>
 </div>
 <div class='col-sm'> </div>
 </div>
