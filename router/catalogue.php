@@ -46,11 +46,9 @@ echo "
 ";
 
 
-
+/*
 if(isset($_GET['cmd'])){
-    if (isset($_GET ['id'])){
-        $id = $_GET['id'];
-    }else {
+  }else {
         $id=0;
     }
     $cmd = $_GET['cmd'];
@@ -76,7 +74,7 @@ if(isset($_GET['cmd'])){
         echo"sesmorts";
         }
     }
-
+*/
 
 ?>
 
