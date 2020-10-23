@@ -81,23 +81,10 @@ echo "
                         <input type='submit' value='Envoyer' name='note&com'>
                     </div>
                 </div>
-            </form>
-                
-                    
+            </form> 
                 </div>
             </div>
         </div> 
-    </div>
-</div>
-<div class='container-fluid'>
-    <div class='row'>
-        <div class='col'>
-            <form method='GET'>
-            <br><input type='text' name='nom' placeholder=\"Nom\">
-                <input type='email' name='email' placeholder=\"Email\">
-                <input type='submit' name='cmd' value='reserver'>
-            </form> 
-        </div>
     </div>
 </div>
 ";
@@ -108,22 +95,32 @@ echo "
 
 
 
-
-
-
-$req = $dbh->prepare("INSERT INTO utilisateur (id, niveau, nom, email) VALUES(NULL, 2, :nom, :email) ");
+echo"<div class='container-fluid'>
+    <div class='row'>
+    <div class='col'>
+    <form method='GET'>
+     <br><input type='texte' name='nom' placeholder=\"le nom de l'utilisateur \">
+     <br><input type='email' name='email' placeholder=\"l'email de l'utilisateur\">
+     ";
+     
+     echo"
+     <br><input type='submit' name='cmd' value='reserver'>
+     </form>
+     </div>
+     </div>
+     </div>";
+     
+    $req = $dbh->prepare("INSERT INTO utilisateur (`id`, `niveau`, `nom`, `email`) VALUES(NULL, 2, :nom, :email) ");
     
     
-$req->Bindparam(":nom", $_GET['nom']);
-    $req->Bindparam(":email", $_GET['email']);
-
-if ($req->execute()){
-        echo "l'utilisateur " .$_GET['nom']." a été ajouté";
-    }else{
-echo "l'utilisateur " .$_GET['nom']." n'a pas été ajouté";
-echo "<br>".$req->errorinfo()[2];
-    }
-
-echo"<form method='GET'>"
+     $req->Bindparam(":nom", $_GET['nom']);
+         $req->Bindparam(":email", $_GET['email']);
+     
+     if ($req->execute()){
+             echo "l'utilisateur " .$_GET['nom']." a été ajouté";
+         }else{
+     echo "l'utilisateur " .$_GET['nom']." n'a pas été ajouté";
+     echo "<br>".$req->errorinfo()[2];
+     }
 
 ?>
