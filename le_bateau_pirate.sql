@@ -2,10 +2,10 @@
 -- version 4.9.5
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost:8889
--- Generation Time: Oct 23, 2020 at 07:06 AM
--- Server version: 5.7.30
--- PHP Version: 7.4.9
+-- Hôte : localhost:8889
+-- Généré le : ven. 23 oct. 2020 à 13:22
+-- Version du serveur :  5.7.30
+-- Version de PHP : 7.4.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -17,15 +17,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `le_bateau_pirate`
+-- Base de données : `le_bateau_pirate`
 --
-CREATE DATABASE IF NOT EXISTS `le_bateau_pirate` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
-USE `le_bateau_pirate`;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `Commentaire`
+-- Structure de la table `Commentaire`
 --
 
 CREATE TABLE `Commentaire` (
@@ -39,7 +37,7 @@ CREATE TABLE `Commentaire` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `Disques`
+-- Structure de la table `Disques`
 --
 
 CREATE TABLE `Disques` (
@@ -51,14 +49,14 @@ CREATE TABLE `Disques` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `Disques`
+-- Déchargement des données de la table `Disques`
 --
 
 INSERT INTO `Disques` (`id`, `prix`, `nom`, `description`, `img`) VALUES
 (1, 2, 'Damso', 'Son nom est un acronyme signifiant « Qui Aime Like Follow ». Cette expression est souvent utilisée par Damso, et ce, depuis ses débuts. ', '1.jpg'),
 (2, 2, 'Pop Smoke', 'Shoot for the Stars, Aim for the Moon est le premier album studio du rappeur américain Pop Smoke, et premier projet posthume suite à son meurtre suite à une invasion de domicile le 19 février 2020.\r\n', '2.jpg'),
 (3, 2, 'Skendgo x Am', 'Skengdo & AM sont un duo de rap britannique de Brixton, Londres. Ils sont tous deux membres du groupe de forage britannique et du gang présumé, 410. Le groupe est connu pour avoir des conflits avec les Harlem Spartans, basés à Kennington et à Moscou17.\r\n', '3.jpeg'),
-(4, 2, 'Mafia K1Fry', ', ce mini-album ou EP de neuf titres, est justement le fruit d’une opportunité, celle apportée par Yezi L’escroc, rappeur qu’on entend sur le titre « Show Bizness » sur O’riginal Mc’s sur une mission d’Ideal J.', '4.jpg'),
+(4, 2, 'Mafia K1Fry', 'Ce mini-album ou EP de neuf titres, est justement le fruit d’une opportunité, celle apportée par Yezi L’escroc, rappeur qu’on entend sur le titre « Show Bizness » sur O’riginal Mc’s sur une mission d’Ideal J.', '4.jpg'),
 (5, 2, 'IAM', 'L\'album a été enregistré en partie à New York, aux États-Unis, avec des influences de RZA, membre du Wu-Tang Clan. Une bonne partie des morceaux a été retravaillée ensuite à Paris, où quelques nouveaux titres ont également fait leur apparition.', '5.jpg'),
 (6, 2, 'Eminem', 'Infinite est le premier album studio du rappeur américain Eminem, sorti le 12 novembre 1996 sur le label Web Entertainment. L\'album a été enregistré dans le studio de Jeff et Mark Bass de leur label Bassmint.', '6.jpg'),
 (7, 2, 'Booba', 'Lors de sa première semaine d\'exploitation, l\'album connait un faible démarrage avec 17 540 exemplaires, un chiffre très en dessous des attentes de la maison de disques du rappeur. Malgré une sortie en demi-teinte, l\'album finira par dépasser la barre des 100 000 exemplaires vendus.\r\n\r\n', '7.jpg'),
@@ -71,7 +69,7 @@ INSERT INTO `Disques` (`id`, `prix`, `nom`, `description`, `img`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `niveau`
+-- Structure de la table `niveau`
 --
 
 CREATE TABLE `niveau` (
@@ -80,7 +78,7 @@ CREATE TABLE `niveau` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `niveau`
+-- Déchargement des données de la table `niveau`
 --
 
 INSERT INTO `niveau` (`id`, `nom`) VALUES
@@ -90,7 +88,7 @@ INSERT INTO `niveau` (`id`, `nom`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `Reservation`
+-- Structure de la table `Reservation`
 --
 
 CREATE TABLE `Reservation` (
@@ -102,7 +100,7 @@ CREATE TABLE `Reservation` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `utilisateur`
+-- Structure de la table `utilisateur`
 --
 
 CREATE TABLE `utilisateur` (
@@ -113,11 +111,11 @@ CREATE TABLE `utilisateur` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Indexes for dumped tables
+-- Index pour les tables déchargées
 --
 
 --
--- Indexes for table `Commentaire`
+-- Index pour la table `Commentaire`
 --
 ALTER TABLE `Commentaire`
   ADD PRIMARY KEY (`id`),
@@ -125,19 +123,19 @@ ALTER TABLE `Commentaire`
   ADD KEY `IX_DISQUES` (`disques`);
 
 --
--- Indexes for table `Disques`
+-- Index pour la table `Disques`
 --
 ALTER TABLE `Disques`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `niveau`
+-- Index pour la table `niveau`
 --
 ALTER TABLE `niveau`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `Reservation`
+-- Index pour la table `Reservation`
 --
 ALTER TABLE `Reservation`
   ADD PRIMARY KEY (`id`),
@@ -145,66 +143,66 @@ ALTER TABLE `Reservation`
   ADD KEY `IX_DISQUES` (`disques`);
 
 --
--- Indexes for table `utilisateur`
+-- Index pour la table `utilisateur`
 --
 ALTER TABLE `utilisateur`
   ADD PRIMARY KEY (`id`),
   ADD KEY `IX_NIVEAU` (`niveau`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT pour les tables déchargées
 --
 
 --
--- AUTO_INCREMENT for table `Commentaire`
+-- AUTO_INCREMENT pour la table `Commentaire`
 --
 ALTER TABLE `Commentaire`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `Disques`
+-- AUTO_INCREMENT pour la table `Disques`
 --
 ALTER TABLE `Disques`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
--- AUTO_INCREMENT for table `niveau`
+-- AUTO_INCREMENT pour la table `niveau`
 --
 ALTER TABLE `niveau`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `Reservation`
+-- AUTO_INCREMENT pour la table `Reservation`
 --
 ALTER TABLE `Reservation`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `utilisateur`
+-- AUTO_INCREMENT pour la table `utilisateur`
 --
 ALTER TABLE `utilisateur`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- Constraints for dumped tables
+-- Contraintes pour les tables déchargées
 --
 
 --
--- Constraints for table `Commentaire`
+-- Contraintes pour la table `Commentaire`
 --
 ALTER TABLE `Commentaire`
   ADD CONSTRAINT `commentaire_ibfk_1` FOREIGN KEY (`nom`) REFERENCES `utilisateur` (`id`),
   ADD CONSTRAINT `commentaire_ibfk_2` FOREIGN KEY (`disques`) REFERENCES `Disques` (`id`);
 
 --
--- Constraints for table `Reservation`
+-- Contraintes pour la table `Reservation`
 --
 ALTER TABLE `Reservation`
   ADD CONSTRAINT `reservation_ibfk_1` FOREIGN KEY (`nom`) REFERENCES `utilisateur` (`id`),
   ADD CONSTRAINT `reservation_ibfk_2` FOREIGN KEY (`disques`) REFERENCES `Disques` (`id`);
 
 --
--- Constraints for table `utilisateur`
+-- Contraintes pour la table `utilisateur`
 --
 ALTER TABLE `utilisateur`
   ADD CONSTRAINT `utilisateur_ibfk_1` FOREIGN KEY (`niveau`) REFERENCES `niveau` (`id`);
