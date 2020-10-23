@@ -28,13 +28,16 @@ echo "
     <div class='container'>
         <div class='row'>
             <div class='col'>
-            
+            <h2>Nos Dernières Nouveautés </h2>";
+            foreach($dbh->query("SELECT id, nom, img, prix FROM disques order by id DESC limit 3") as $ligne) {
+           echo "Nos disques".$ligne['nom']."<img class='mld-card-img' src=".$chemin.$ligne['img'].">".$ligne['prix'];
+        }
+             echo  " </div>
             </div>
         </div>
 
     </div>
 </div>
 ";
-
 
 ?>

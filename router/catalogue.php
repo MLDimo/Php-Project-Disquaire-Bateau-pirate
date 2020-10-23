@@ -28,7 +28,7 @@ echo "
     <div class='container'>
         <div class='row mld-div-card'>
         ";
-        foreach($dbh->query("SELECT nom, img, prix FROM Disques ORDER BY id desc")as $ligne) {
+        foreach($dbh->query("SELECT id, nom, img, prix FROM Disques ORDER BY id desc")as $ligne) {
 
         echo"  <div class='col-sm-5 mld-pos-card' >
                 <div class='mld-card'>
@@ -36,6 +36,7 @@ echo "
                     <h4>WANTED</h4>
                     <img class='mld-card-img' src=".$chemin.$ligne["img"].">"."<h3> ".$ligne['nom']."</h3><h6> Dead or Alive </h6>".$ligne['prix']." $
                     <br><input type='submit' class='mld-card-a' name='$cmd' value='Voir'><br><div class='gneu'></div>
+                    <input type='hidden' value=".$ligne['id']." name='id'>
                     
                 </div>
             </div>";
