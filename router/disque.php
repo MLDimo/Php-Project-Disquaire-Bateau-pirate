@@ -101,23 +101,29 @@ echo "
     </div>
 </div>
 ";
+
+
 }
 
 
 
 
 
-$req = $dbh->prepare("INSERT INTO utilisateur (id, nom, email) VALUES(NULL, :nom, :email) ");
+
+
+$req = $dbh->prepare("INSERT INTO utilisateur (id, niveau, nom, email) VALUES(NULL, 2, :nom, :email) ");
+    
+    
 $req->Bindparam(":nom", $_GET['nom']);
-$req->Bindparam(":email", $_GET['email']);
+    $req->Bindparam(":email", $_GET['email']);
 
-   /* if ($req->execute()){
-        echo "la Reservation  a été effectué";
+if ($req->execute()){
+        echo "l'utilisateur " .$_GET['nom']." a été ajouté";
     }else{
-echo "La reservation n'a pas été effectué";
-
+echo "l'utilisateur " .$_GET['nom']." n'a pas été ajouté";
 echo "<br>".$req->errorinfo()[2];
-}*/
+    }
 
+echo"<form method='GET'>"
 
 ?>

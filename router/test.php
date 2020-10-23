@@ -48,7 +48,7 @@ echo"<form method='GET'>
      <br><input type='submit' name='cmd' value='reserver'>
      </form>";
      
-    $req = $dbh->prepare("INSERT INTO utilisateur (`id`, `niveau`, `nom`, `email`) VALUES(NULL, '2', ':nom', ':email') ");
+    $req = $dbh->prepare("INSERT INTO utilisateur (id, niveau, nom, `email`) VALUES(NULL, 2, :nom, :email) ");
     
     
      $req->Bindparam(":nom", $_GET['nom']);
