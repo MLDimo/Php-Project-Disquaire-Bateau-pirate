@@ -27,18 +27,22 @@ echo "
     <h1 class='mld-titre'> Catalogue </h1>
     <div class='container'>
         <div class='row mld-div-card'>
+        
         ";
         foreach($dbh->query("SELECT id, nom, img, prix FROM Disques ORDER BY id desc")as $ligne) {
 
         echo"  <div class='col-sm-5 mld-pos-card' >
+                <form >
                 <div class='mld-card'>
                     <div class='gneu'></div>
                     <h4>WANTED</h4>
                     <img class='mld-card-img' src=".$chemin.$ligne["img"].">"."<h3> ".$ligne['nom']."</h3><h6> Dead or Alive </h6>".$ligne['prix']." $
-                    <br><input type='submit' class='mld-card-a' name='$cmd' value='Voir'><br><div class='gneu'></div>
-                    <input type='hidden' value=".$ligne['id']." name='id'>
+                    <br><a type='submit' class='mld-card-a' name='$cmd' value='Voir' href='index.php?page=disque&id=".$ligne['id']."'>Voir</a><br><div class='gneu'></div>
+                    <input type='hidden' value=".$ligne['id']." name='id'>";
                     
+                    echo"
                 </div>
+                </form>
             </div>";
         }
     echo"</div>
@@ -76,6 +80,8 @@ if(isset($_GET['cmd'])){
         }
     }
 */
+
+
 
 ?>
 
