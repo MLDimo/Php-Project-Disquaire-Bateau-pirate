@@ -29,7 +29,7 @@ class Page{
         if(isset($_GET['page'])){
             $page= $_GET['page'];
         }else{
-            $page ="home";
+            $page ="test";
         }
         include "router/$page.php";
         //$this->personnalisations = $texte;
