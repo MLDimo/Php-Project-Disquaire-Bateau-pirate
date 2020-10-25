@@ -1,6 +1,5 @@
 <?php 
 
-
 class Page{
 
     private $template;

@@ -3,7 +3,7 @@
 
 $chemin ="template/assets/img/";
 $cmd="";
-
+$id=$_GET[id] ;
 
 
  echo " 
@@ -31,7 +31,7 @@ $cmd="";
 
 
 
-foreach($dbh->query("SELECT id, nom, img, prix, description FROM Disques WHERE id = $_GET[id] ")as $ligne) {
+foreach($dbh->query("SELECT id, nom, img, prix, description FROM Disques WHERE id = $id ")as $ligne) {
 
 echo "
 <div class='container'>
@@ -110,6 +110,8 @@ echo"<div class='container-fluid'>
      </div>
      </div>";
      
+
+     
     $req = $dbh->prepare("INSERT INTO utilisateur (`id`, `niveau`, `nom`, `email`) VALUES(NULL, 2, :nom, :email) ");
     
     
@@ -122,5 +124,15 @@ echo"<div class='container-fluid'>
      echo "l'utilisateur " .$_GET['nom']." n'a pas été ajouté";
      echo "<br>".$req->errorinfo()[2];
      }
+
+
+
+
+
+     $req= $dbh->prepare("INSERT INTO  Commentaire (id, disques nom, com, note) VALUES(NULL, :nom, $id, :com, :note)");
+
+     $req->Bindparam(":com", $_GET['nom']);
+     $req->Bindparam(":note", $_GET['email']);
+ 
 
 ?>
