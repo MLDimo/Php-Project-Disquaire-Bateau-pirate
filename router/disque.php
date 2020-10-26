@@ -67,19 +67,18 @@ echo "
                 <div class='row mld-descript'>
                     <div class='col-sm rating rating2''>
                     
-                            <a href='#5' title='Give 5 stars'>★</a>
-                            <a href='#4' title='Give 4 stars'>★</a>
-                            <a href='#3' title='Give 3 stars'>★</a>
-                            <a href='#2' title='Give 2 stars'>★</a>
-                            <a href='#1' title='Give 1 star'>★</a>
-                            <textarea type='text' name='com placeholder='\" Commentaire \"' style='width: 450px; height: 50px'></textarea>
-                    
-
+                            <a href='#5' value='5' name='note' title='Give 5 stars'>★</a>
+                            <a href='#4'  value='4' name='note' title='Give 4 stars'>★</a>
+                            <a href='#3'  value='3' name='note' title='Give 3 stars'>★</a>
+                            <a href='#2'  value='2' name='note' title='Give 2 stars'>★</a>
+                            <a href='#1'  value='1' name='note' title='Give 1 star'>★</a>
+                            <textarea type='text' name='com' placeholder=\" Commentaire \" style='width: 450px; height: 50px'></textarea>
+                
                     </div>
                 </div>
                 <div class='row'>
                     <div class='col mld-img-col'>
-                        <input type='submit' value='Envoyer' name='note&com'>
+                        <input type='submit' value='Envoyer'  name='cmd' >
                         <input type='hidden' name='page' value='disque'>
                     </div>
                 </div>
@@ -115,27 +114,28 @@ echo"<div class='container-fluid'>
      
 
      
-    $req = $dbh->prepare("INSERT INTO utilisateur (`id`, `niveau`, `nom`, `email`) VALUES(NULL, 2, :nom, :email) ");
+        $req = $dbh->prepare("INSERT INTO utilisateur (`id`, `niveau`, `nom`, `email`) VALUES(NULL, 2, :nom, :email) ");
+        
+        
+        $req->Bindparam(":nom", $_GET['nom']);
+            $req->Bindparam(":email", $_GET['email']);
+        
+        if ($req->execute()){
+                echo "l'utilisateur " .$_GET['nom']." a été ajouté";
+            }else{
+        echo "l'utilisateur " .$_GET['nom']." n'a pas été ajouté";
+        echo "<br>".$req->errorinfo()[2];
+        }
+
+
+     $req = $dbh->prepare("INSERT INTO `Commentaire` (`id`, `disques`, 'com', 'note', `nom`) VALUES (NULL, ':com', ':note', ':disques')");
+
+     $req->Bindparam(":com", $_GET['com']);
+        $req->Bindparam(":note", $_GET['note']);
+        $req->Bindparam(":disques", $_GET['disques']);
+    
+        $req->execute();
     
     
-     $req->Bindparam(":nom", $_GET['nom']);
-         $req->Bindparam(":email", $_GET['email']);
-     
-     if ($req->execute()){
-             echo "l'utilisateur " .$_GET['nom']." a été ajouté";
-         }else{
-     echo "l'utilisateur " .$_GET['nom']." n'a pas été ajouté";
-     echo "<br>".$req->errorinfo()[2];
-     }
-
-
-
-
-
-     $req= $dbh->prepare("INSERT INTO  Commentaire (id, disques nom, com, note) VALUES(NULL, :nom, $id, :com, :note)");
-
-     $req->Bindparam(":com", $_GET['nom']);
-     $req->Bindparam(":note", $_GET['email']);
- 
 
 ?>

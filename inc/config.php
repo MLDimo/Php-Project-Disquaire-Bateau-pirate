@@ -12,5 +12,7 @@ try{
     die();
 }
 
+$dbh->query("SET NAMES UTF8");
+
 
 ?>
