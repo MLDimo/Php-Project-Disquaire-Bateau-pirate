@@ -3,7 +3,8 @@
 
 $chemin ="template/assets/img/";
 $cmd="";
-$id=$_GET[id] ;
+$page="disque";
+$id=$_GET['id'] ;
 
 
  echo " 
@@ -79,6 +80,7 @@ echo "
                 <div class='row'>
                     <div class='col mld-img-col'>
                         <input type='submit' value='Envoyer' name='note&com'>
+                        <input type='hidden' name='page' value='disque'>
                     </div>
                 </div>
             </form> 
@@ -105,6 +107,7 @@ echo"<div class='container-fluid'>
      
      echo"
      <br><input type='submit' name='cmd' value='reserver'>
+        <input type='hidden' name='page' value='disque'>
      </form>
      </div>
      </div>
